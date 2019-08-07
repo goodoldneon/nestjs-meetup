@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "docker-compose -p nestjs_meetup -f docker-compose.yml up -d --build",
+    "stop": "docker-compose -p nestjs_meetup -f docker-compose.yml down"
+  }
+}
