@@ -1,20 +1,22 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const swaggerDocument = SwaggerModule.createDocument(
-    app,
-    new DocumentBuilder().setTitle('Data Service').build(),
-  );
+  // Swagger base document.
+  const swaggerOptions = new DocumentBuilder().setTitle('Data Service').build();
 
-  /* Serve Swagger UI. */
+  // Swagger document with HTTP routes.
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerOptions);
+
+  // Serve Swagger.
   SwaggerModule.setup('api', app, swaggerDocument);
 
+  // Enable global request validation.
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(3000);
