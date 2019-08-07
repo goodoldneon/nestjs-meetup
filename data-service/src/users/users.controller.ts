@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Delete } from '@nestjs/common';
 
 import { SignupUserDto } from './dto/signup-user.dto';
 import { UsersService } from './users.service';
@@ -6,6 +6,11 @@ import { UsersService } from './users.service';
 @Controller('users')
 export class UsersController {
   constructor(private usersService: UsersService) {}
+
+  @Delete(':id')
+  deleteUser(@Param('id') id: number) {
+    return this.usersService.deleteUser(id);
+  }
 
   @Get(':id')
   getUser(@Param('id') id: number) {

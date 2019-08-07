@@ -23,6 +23,18 @@ export class UsersService {
     private userRepository: UserRepository,
   ) {}
 
+  async deleteUser(id: number) {
+    const user = await this.userRepository.findOne(id);
+
+    if (!user) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+
+    user.remove();
+
+    return user;
+  }
+
   async getUser(id: number) {
     const user = await this.userRepository.findOne(id);
 
