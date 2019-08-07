@@ -12,6 +12,11 @@ export class UsersController {
     return this.usersService.getUser(id);
   }
 
+  @Get()
+  getUsers() {
+    return this.usersService.getUsers();
+  }
+
   @Post()
   signupUser(@Body() signupUserDto: SignupUserDto) {
     return this.usersService.signupUser(signupUserDto);

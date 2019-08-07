@@ -33,11 +33,18 @@ export class UsersService {
     return user;
   }
 
+  async getUsers() {
+    const users = await this.userRepository.find();
+
+    return users;
+  }
+
   async signupUser(signupUserDto: SignupUserDto) {
     const { name } = signupUserDto;
     const user = new User();
 
     user.name = name;
+
     await user.save();
 
     return user;
