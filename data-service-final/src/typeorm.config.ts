@@ -6,7 +6,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   port: 5432,
   username: 'postgres',
   password: 'postgres',
-  database: 'nestjs_meetup',
-  entities: [`${__dirname}/../**/*.entity.js`],
+  database: 'demo',
+  entities: [`${__dirname}/**/*.entity.js`],
   synchronize: true,
 };

@@ -10,10 +10,11 @@ export class UsersService {
     return this.userRepository.find();
   }
 
-  async createUser(createUserDto) {
+  async createUser(userData) {
     const user = new User();
 
-    user.name = createUserDto.name;
+    user.name = userData.name;
+    user.house = userData.house;
 
     await user.save();
 

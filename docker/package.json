@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "shell:postgres": "docker exec -it $(docker ps -aqf 'name=postgres') /bin/sh",
     "start": "docker-compose -p nestjs_meetup -f docker-compose.yml up -d --build",
     "stop": "docker-compose -p nestjs_meetup -f docker-compose.yml down"
   }

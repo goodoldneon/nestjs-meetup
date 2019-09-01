@@ -16,9 +16,10 @@ async function bootstrap() {
   // Serve Swagger.
   SwaggerModule.setup('api', app, swaggerDocument);
 
-  // Enable request validation.
+  // Enable global request validation.
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(3000);
 }
+
 bootstrap();
