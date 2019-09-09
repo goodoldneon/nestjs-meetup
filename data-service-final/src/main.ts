@@ -7,11 +7,11 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Create Swagger options.
-  const swaggerOptions = new DocumentBuilder().setTitle('Data Service').build();
+  // Create Swagger config.
+  const swaggerConfig = new DocumentBuilder().setTitle('Data Service').build();
 
   // Create Swagger document (with HTTP routes).
-  const swaggerDocument = SwaggerModule.createDocument(app, swaggerOptions);
+  const swaggerDocument = SwaggerModule.createDocument(app, swaggerConfig);
 
   // Serve Swagger.
   SwaggerModule.setup('api', app, swaggerDocument);
