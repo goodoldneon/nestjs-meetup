@@ -3,6 +3,7 @@
 1. Install Docker.
 2. In `docker`, run `npm start` to start Postgres.
 3. In `data-service-final`, run `npm run start:dev` to start Nest server.
+4. Browse to `localhost:3000/api` to view Swagger.
 
 ### Directly Query Postgres
 
